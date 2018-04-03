@@ -10,7 +10,7 @@ class LessonsController < ApplicationController
 
   def require_authorized_for_current_lesson
     if !current_user.enrolled_in?(current_lesson.section.course) 
-        flash[:error] ="You must be enrolled to access the lessons"
+        flash[:error] = "Please enroll to access the lessons."
         redirect_to course_path(current_lesson.section.course)
     end
   end 
